@@ -1,0 +1,20 @@
+[package]
+name = "rust-whose-overflow-is-it-anyway-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+bincode = { version = "2.0.1", features = ["serde"] }
+cardinality-estimator = { version = "1.0.2", features = ["with_serde"] }
+
+[[bin]]
+name = "bincode_serde_cardinality_estimate"
+path = "fuzz_targets/bincode_serde_cardinality_estimate.rs"
+test = false
+doc = false
+bench = false
