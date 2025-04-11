@@ -17,10 +17,16 @@ The specific dependencies can be verified in [`./fuzz/Cargo.toml`](./fuzz/Cargo.
 Darwin [...] 24.3.0 Darwin Kernel Version 24.3.0: Thu Jan  2 20:22:58 PST 2025; root:xnu-11215.81.4~3/RELEASE_ARM64_T8132 arm64
 ```
 
-The artifact is committed to the repo, so it might be possible to repro directly by running:
+i can repro every time and almost instantly by running
+
+```bash
+RUSTFLAGS="-Z sanitizer=address" cargo +nightly fuzz run cardinality_estimator
+```
+
+The fuzz artifact is committed to the repo, so it might be possible to repro directly by running:
 
 ```
-cargo +nightly fuzz tmin bincode_serde_cardinality_estimate fuzz/artifacts/bincode_serde_cardinality_estimate/crash-3c8f3f5345ec0e853bed074a3c63d074be14f814
+cargo +nightly fuzz run bincode_serde_cardinality_estimate fuzz/artifacts/bincode_serde_cardinality_estimate/crash-3c8f3f5345ec0e853bed074a3c63d074be14f814
 ```
 
 ### repro output
