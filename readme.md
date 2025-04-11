@@ -2,6 +2,12 @@
 
 See [`./fuzz`](./fuzz) (and specifically [`fuzz_targets/bincode_serde_cardinality_estimate.rs`](./fuzz/fuzz_targets/bincode_serde_cardinality_estimate.rs)) for a small example with no unsafe that finds a buffer flow very quickly on my machine.
 
+The specific dependencies can be verified in [`./fuzz/Cargo.toml`](./fuzz/Cargo.toml):
+
+- cloudflare/**cardinality-estimator** `1.0.2` (features = ["with_serde"])
+- **bincode** `2.0.1` (features = ["serde"])
+
+
 The artifact is committed to the repo, so it might be possible to repro directly by running:
 
 ```
