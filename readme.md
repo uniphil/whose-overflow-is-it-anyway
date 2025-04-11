@@ -1,6 +1,8 @@
-# Rust buffer overflow: bincode2 (+serde) + cardinality-estimator
+# Rust buffer overflow: cardinality-estimator with serde other than json
 
-See [`./fuzz`](./fuzz) (and specifically [`fuzz_targets/bincode_serde_cardinality_estimate.rs`](./fuzz/fuzz_targets/bincode_serde_cardinality_estimate.rs)) for a small example with no unsafe that finds a buffer flow very quickly on my machine.
+See [`./fuzz`](./fuzz) (and specifically [`fuzz_targets/bincode_serde_cardinality_estimate.rs`](./fuzz/fuzz_targets/bincode_serde_cardinality_estimate.rs)) for a small example with no unsafe that finds a buffer flow very quickly on my machine using bincode to deserialize.
+
+An additional POC with postcard instead of bincode is now at [`fuzz_targets/postcard.rs`](./fuzz/fuzz_targets/postcard.rs))
 
 ### dependencies
 
